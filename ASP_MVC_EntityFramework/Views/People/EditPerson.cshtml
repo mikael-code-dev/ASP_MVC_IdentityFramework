@@ -1,0 +1,57 @@
+﻿@model PersonViewModel
+@{
+    ViewData["Title"] = "Edit person";
+}
+
+<h1 class="star-glance" data-text="Update person">Update person</h1>
+
+<div class="create-person-form">
+    
+
+    <form asp-controller="People" asp-action="EditPerson">
+
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+
+        <div class="mb-3">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="error-message"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="error-message"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CityId" class="control-label"></label>
+            <select asp-for="CityId" asp-items="ViewBag.CitiesList" class="form-control dropdown-margin-bottom">
+                <option disabled selected>Select City</option>
+            </select>
+            @if (ViewBag.ErrorCity != null)
+            {
+                <span class="error-message">@ViewBag.ErrorCity</span>
+            }
+        </div>
+
+        <div class="hidden-input">
+            <label asp-for="Id"></label>
+            <input asp-for="Id" />
+            @*<span asp-validation-for="Id" class="error-message"></span>*@
+        </div>
+
+        <input type="submit" value="Update Person" class="btn add-person-buttons" />
+        @*<input type="reset" value="Reset" class="btn add-person-buttons" />*@
+    </form>
+</div>
+
+<script>
+    var errorMess = document.querySelectorAll(".error-message");
+
+    errorMess.forEach((element) => {
+        if (element.innerHTML === "") {
+            element.classList.add("no-show");
+        }
+    });
+</script>

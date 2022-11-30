@@ -1,0 +1,20 @@
+﻿@model LanguageViewModel
+@{
+    ViewData["Title"] = "Add Language";
+}
+
+<h1 class="star-glance" data-text="Add The Language">Add The Language</h1>
+
+<div class="create-person-form">
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="error-message"></span>
+        </div>
+
+        <input type="submit" value="Add Language" class="btn add-person-buttons" />
+    </form>
+
+</div>

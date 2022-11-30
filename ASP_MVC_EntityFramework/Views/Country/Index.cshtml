@@ -1,0 +1,23 @@
+﻿@model List<Country>;
+@{
+    ViewData["Title"] = "Add a new Country";
+}
+
+<h1 class="star-glance" data-text="Countries in Database">Countries in Database</h1>
+
+<div class="people-wrapper">
+    <a asp-controller="Country" asp-action="Create" class="add-button">Add Country</a>
+    <table class="table">
+        <thead><tr><th></th></tr></thead>
+        <tbody>
+            @foreach (var country in Model)
+            {
+                <tr>
+                    <td>
+                        @country.Name
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

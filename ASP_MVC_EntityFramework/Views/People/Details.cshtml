@@ -1,0 +1,36 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "Person Details";
+}
+
+<h1 class="star-glance" data-text="Details for Person">Details for Person</h1>
+
+
+<div class="people-wrapper person-details-wrapper">
+    <table class="">
+        <tr><td class="ghost-td"></td><td>Name:</td><td>@Model.Name</td></tr>
+        <tr><td class="ghost-td"></td><td>Phone Number:</td><td>@Model.PhoneNumber</td></tr>
+        <tr><td class="ghost-td"></td><td>City:</td><td>@Model.City.Name</td></tr>
+        <tr><td class="ghost-td"></td><td>Country:</td><td>@Model.City.Country.Name</td></tr>
+        <tr>
+            <td class="ghost-td">&nbsp;</td>
+            <td>Languages:</td>
+            <td>
+                <ul class="language-list">
+                    @foreach (var lang in Model.Languages)
+                    {
+                        <li>@lang.Name</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            @*<td></td>*@
+            <td class="person-details-action-button">
+                <a asp-action="EditPerson" asp-route-id="@Model.Id" class="btn-button edit-button">EDIT</a>
+            </td>
+        </tr>
+    </table>
+</div>
+

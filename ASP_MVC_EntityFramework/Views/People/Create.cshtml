@@ -1,0 +1,51 @@
+﻿@model PersonViewModel;
+@{
+    ViewData["Title"] = "Add Person to database";
+}
+
+<h1 class="star-glance" data-text="Add a new Person">Add a new Person</h1>
+
+<div class="create-person-form">
+
+    <form asp-controller="People" asp-action="Create">
+
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+
+        <div class="mb-3">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="error-message"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="error-message"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CityId" class="control-label"></label>
+            <select asp-for="CityId" asp-items="ViewBag.CitiesList" class="form-control dropdown-margin-bottom">
+                    <option disabled selected>Select City</option>
+            </select>
+            @if (ViewBag.ErrorCity != null)
+            {
+                <span class="error-message">@ViewBag.ErrorCity</span>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LanguageId" class="control-label"></label>
+            <select asp-for="LanguageId" asp-items="ViewBag.LanguagesList" class="form-control dropdown-margin-bottom">
+                <option disabled selected>Select Language</option>
+            </select>
+            @if (ViewBag.ErrorLanguage != null)
+            {
+                <span class="error-message">@ViewBag.ErrorLanguage</span>
+            }
+        </div>
+
+        <input type="submit" value="Add Person" class="btn add-person-buttons" />
+        <input type="reset" value="Reset" class="btn add-person-buttons" />
+    </form>
+</div>

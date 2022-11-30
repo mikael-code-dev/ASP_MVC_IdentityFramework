@@ -1,0 +1,23 @@
+﻿@model IEnumerable<City>
+@{
+    ViewData["Title"] = "Cities";
+}
+
+<h1 class="star-glance" data-text="Cities in Database">Cities in Database</h1>
+
+<div class="people-wrapper">
+    <a asp-controller="City" asp-action="Create" class="add-button">Add City</a>
+    <table class="table">
+        <thead><tr><th></th></tr></thead>
+        <tbody>
+            @foreach (var city in Model)
+            {
+                <tr>
+                    <td>
+                        @city.Name
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

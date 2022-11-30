@@ -1,0 +1,38 @@
+﻿@model Person
+
+
+@if (Model != null)
+{
+    <tr data-modelid="@Model.Id">
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td class="languages-display">
+            <div>
+                <ul class="language-list">
+                    @foreach (var lang in Model.Languages)
+                    {
+                        <li>@lang.Name</li>
+                    }
+                </ul>
+            </div>
+            
+            <div class="add-language-wrapper">
+                <input type="button" onclick="toggleLanguagePanel(@Model.Id)" id="toggle-add-language-button" value="+" />
+                <div class="no-show-language-panel" id="@Model.Id">
+                    <span class="add-language-header">Add New Language</span>
+                    <div class="new-language-inputs">
+                        <input type="text" />
+                        <input type="button" onclick="addLanguageButton(@Model.Id)" value=">" />
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td>@Model.City.Name</td>
+        <td>@Model.City.Country.Name</td>
+        <td>
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn-button details-button">DETAILS</a>
+            <a asp-action="EditPerson" asp-route-id="@Model.Id" class="btn-button edit-button">EDIT</a>
+            <a onclick="deletePerson(@Model.Id)" class="btn-button delete-button">REMOVE</a>
+        </td>
+    </tr>
+}

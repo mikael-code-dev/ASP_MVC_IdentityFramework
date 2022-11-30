@@ -1,0 +1,31 @@
+﻿@model CityViewModel
+@{
+    ViewData["Title"] = "Add a country";
+}
+
+<h1 class="star-glance" data-text="Add New City">Add New City</h1>
+
+<div class="create-person-form">
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="CountryId" class="control-label"></label>
+            <select asp-for="CountryId" asp-items="ViewBag.CountriesList" class="form-control dropdown-margin-bottom">
+                <option disabled selected>Select Country</option>
+            </select>
+            @if (ViewBag.ErrorCountry != null)
+            {
+                <span class="error-message">@ViewBag.ErrorCountry</span>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="error-message"></span>
+        </div>
+
+        <input type="submit" value="Add City" class="btn add-person-buttons" />
+    </form>
+
+</div>

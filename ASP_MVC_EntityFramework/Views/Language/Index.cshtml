@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Language>;
+@{
+    ViewData["Title"] = "Languages in DB";
+}
+
+<h1 class="star-glance" data-text="Languages in Database">Languages in Database</h1>
+
+<div class="people-wrapper">
+    <a asp-controller="Language" asp-action="Create" class="add-button">Add Language</a>
+    <table class="table">
+        <thead><tr><th></th></tr></thead>
+        <tbody>
+            @foreach (var lang in Model)
+            {
+                <tr>
+                    <td>
+                        @lang.Name
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

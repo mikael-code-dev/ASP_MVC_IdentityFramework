@@ -1,0 +1,31 @@
+﻿@model PeopleViewModel
+
+@{
+    ViewData["Title"] = "People Index";
+}
+
+<h1 class="star-glance" data-text="People Index">People Index</h1>
+
+<h2 class="hide-on-animate">Circular Square people</h2>
+
+<div class="people-wrapper">
+    <a asp-controller="People" asp-action="Create" class="add-button">Add Person</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NAME</th>
+                <th>LANGUAGES</th>
+                <th>CITY</th>
+                <th>COUNTRY</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model.listOfPeople)
+            {
+                    <partial name="_ShowPeopleTablePartial" model="person" />
+            }
+        </tbody>
+    </table>
+</div>
