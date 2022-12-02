@@ -15,7 +15,7 @@
                     }
                 </ul>
             </div>
-            
+
             <div class="add-language-wrapper">
                 <input type="button" onclick="toggleLanguagePanel(@Model.Id)" id="toggle-add-language-button" value="+" />
                 <div class="no-show-language-panel" id="@Model.Id">
@@ -32,7 +32,11 @@
         <td>
             <a asp-action="Details" asp-route-id="@Model.Id" class="btn-button details-button">DETAILS</a>
             <a asp-action="EditPerson" asp-route-id="@Model.Id" class="btn-button edit-button">EDIT</a>
-            <a onclick="deletePerson(@Model.Id)" class="btn-button delete-button">REMOVE</a>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <a onclick="deletePerson(@Model.Id)" class="btn-button delete-button">REMOVE</a>
+            }
         </td>
     </tr>
 }

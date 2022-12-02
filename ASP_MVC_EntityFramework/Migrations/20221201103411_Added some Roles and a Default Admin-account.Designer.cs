@@ -4,6 +4,7 @@ using ASP_MVC_EntityFramework.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP_MVC_EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201103411_Added some Roles and a Default Admin-account")]
+    partial class AddedsomeRolesandaDefaultAdminaccount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,13 +31,6 @@ namespace ASP_MVC_EntityFramework.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Admin")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Birthday")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -104,11 +99,9 @@ namespace ASP_MVC_EntityFramework.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6300129e-a0fe-4ba5-8468-d239a56940f2",
+                            Id = "74c799b4-8c8d-4e57-a4f7-5501fcf46167",
                             AccessFailedCount = 0,
-                            Admin = false,
-                            Birthday = "2000-01-01",
-                            ConcurrencyStamp = "96e301af-bfa6-4ea9-b562-dccccebdf156",
+                            ConcurrencyStamp = "768144ff-0187-4285-9ebc-148d0c065d97",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -116,9 +109,9 @@ namespace ASP_MVC_EntityFramework.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEE+KD0Bl8e9nRmp4fqJncoB3OrilgBL0gjvoFadlpnx4FT314lz7MFAM3puXVJypyg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEC27Oefp5JCtjiOcCbsdDvYvh5/MSXRGNTPeAZi60pjxEnFkzJDwMctvg+Z8HtlYug==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dd949c89-b155-47b0-a0d5-bff4be81a9f2",
+                            SecurityStamp = "2348155d-9c90-4c9a-8435-b7b554e84d53",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
@@ -418,15 +411,15 @@ namespace ASP_MVC_EntityFramework.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ce4274ca-7c31-448d-a82c-bb89fea16998",
-                            ConcurrencyStamp = "ffc034f7-7fa8-4a21-a63e-0c63d80aa66e",
+                            Id = "66faf0bb-ab5c-4f42-9802-430f51cd8bb5",
+                            ConcurrencyStamp = "f0da4938-7d8a-4510-b70e-e346f864f90e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "a2ff5a3c-99f8-4405-bc51-e6f84413a652",
-                            ConcurrencyStamp = "a42cbcac-68ac-4e3d-be90-ab50f11ac72a",
+                            Id = "1a960eb6-a3ae-4e29-84b6-d51287485a16",
+                            ConcurrencyStamp = "685d39b4-4508-49e8-b58f-3b0b0b774935",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -523,8 +516,8 @@ namespace ASP_MVC_EntityFramework.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "6300129e-a0fe-4ba5-8468-d239a56940f2",
-                            RoleId = "ce4274ca-7c31-448d-a82c-bb89fea16998"
+                            UserId = "74c799b4-8c8d-4e57-a4f7-5501fcf46167",
+                            RoleId = "66faf0bb-ab5c-4f42-9802-430f51cd8bb5"
                         });
                 });
 

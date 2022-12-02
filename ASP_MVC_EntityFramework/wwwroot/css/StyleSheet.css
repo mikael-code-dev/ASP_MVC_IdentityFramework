@@ -336,6 +336,7 @@ header {
 .people-wrapper td a.delete-button:hover {
     background-color: #e28181;
     color: #ffffff;
+    cursor: pointer;
 }
 
 /* Details for Person */
@@ -458,6 +459,12 @@ option {
 .hidden-input {
     display: none;
 }
+
+/*  *****  IDENTITY  ***** */
+.register-checkbox {
+    -webkit-appearance: auto !important;
+}
+
 
 
 /* *****   FOOTER   ***** */

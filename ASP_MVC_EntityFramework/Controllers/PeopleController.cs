@@ -1,6 +1,7 @@
 ﻿using ASP_MVC_EntityFramework.Data;
 using ASP_MVC_EntityFramework.Models;
 using ASP_MVC_EntityFramework.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using System.Linq;
 
 namespace ASP_MVC_EntityFramework.Controllers
 {
+    [Authorize(Roles = "Admin, User")]
     public class PeopleController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -1,11 +1,14 @@
 ﻿using ASP_MVC_EntityFramework.Data;
 using ASP_MVC_EntityFramework.Models;
 using ASP_MVC_EntityFramework.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace ASP_MVC_EntityFramework.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CountryController : Controller
     {
         private readonly ApplicationDbContext _context;

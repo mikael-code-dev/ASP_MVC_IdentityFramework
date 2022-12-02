@@ -1,11 +1,13 @@
 ﻿using ASP_MVC_EntityFramework.Data;
 using ASP_MVC_EntityFramework.Models;
 using ASP_MVC_EntityFramework.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ASP_MVC_EntityFramework.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CityController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -38,6 +40,8 @@ namespace ASP_MVC_EntityFramework.Controllers
                 City cityToAdd = new() { Name = city.Name, CountryId = city.CountryId };
                 _context.Cities.Add(cityToAdd);
                 _context.SaveChanges();
+
+                return RedirectToAction("Index");
             }
 
             return View();
