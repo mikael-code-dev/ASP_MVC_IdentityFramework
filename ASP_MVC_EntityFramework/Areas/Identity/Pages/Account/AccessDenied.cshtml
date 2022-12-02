@@ -4,7 +4,9 @@
     ViewData["Title"] = "Access denied";
 }
 
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
-</header>
+<h1 class="star-glance-no-access" data-text="@ViewData["Title"]">@ViewData["Title"]</h1>
+
+<div class="splash-screen">
+    
+    <p class="splash-info-text">You do not have access to this resource.</p>
+</div>

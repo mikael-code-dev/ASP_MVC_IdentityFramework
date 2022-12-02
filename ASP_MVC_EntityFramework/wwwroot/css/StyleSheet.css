@@ -124,39 +124,42 @@ h1 {
         animation: star-glancing 10s infinite;
     }
 
-    @keyframes star-glancing {
-        0% {
-            opacity: 0;
-        }
-        50% {
-            opacity: 0.5;
-        }
-        100% {
-            opacity: 0;
-        }
+@keyframes star-glancing {
+    0% {
+        opacity: 0;
     }
 
-    h2 {
-        font-size: 3.6rem;
-        opacity 1;
+    50% {
+        opacity: 0.5;
     }
 
-        h2.hide-on-animate {
-            animation: hide-me 8s forwards;
-        }
+    100% {
+        opacity: 0;
+    }
+}
 
-        @keyframes hide-me {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
+h2 {
+    font-size: 3.6rem;
+    opacity 1;
+}
 
-        h3 {
-            font-size: 2.6rem;
-        }
+    h2.hide-on-animate {
+        animation: hide-me 8s forwards;
+    }
+
+@keyframes hide-me {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+h3 {
+    font-size: 2.6rem;
+}
 
 p {
     font-family: var(--font-text);
@@ -260,10 +263,10 @@ header {
         margin-bottom: -0.1rem; /* HACK TO MAKE THE LINES EVEN */
     }
 
-.people-wrapper .add-language-header {
-    color: rgba(255 255 255 / 0.4);
-    font-size: 1.2rem;
-}
+    .people-wrapper .add-language-header {
+        color: rgba(255 255 255 / 0.4);
+        font-size: 1.2rem;
+    }
 
 .add-language-wrapper input {
     border: none;
@@ -271,15 +274,15 @@ header {
     color: #dedede;
 }
 
-.add-language-wrapper input[type="text"] {
-    width: 8rem;
-}
+    .add-language-wrapper input[type="text"] {
+        width: 8rem;
+    }
 
     .add-language-wrapper input[type="button"] {
         width: 2rem;
     }
 
-    .language-list {
+.language-list {
     list-style-type: none;
 }
 
@@ -465,6 +468,41 @@ option {
     -webkit-appearance: auto !important;
 }
 
+.star-glance-no-access::before {
+    content: attr(data-text);
+    position: absolute;
+    color: lightyellow;
+    color: #ff0808;
+    opacity: 0;
+    text-shadow: 4px 4px 8px white, -4px -4px 8px white;
+    animation: star-glancing 10s infinite;
+}
+
+.nav-pills {
+    /*background-color: antiquewhite;*/
+}
+
+a.profile-links {
+    color: antiquewhite !important;
+}
+
+.nav-pills a.nav-link:hover::before {
+    content: none;
+}
+
+.identity-forms {
+    width: 40rem !important;
+}
+
+.identity-btn {
+    color: whitesmoke;
+    font-family: var(--font-link);
+    font-size: 2rem;
+}
+
+.my-5 {
+    margin-bottom: 4rem !important;
+}
 
 
 /* *****   FOOTER   ***** */

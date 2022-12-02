@@ -16,16 +16,20 @@
                 </ul>
             </div>
 
-            <div class="add-language-wrapper">
-                <input type="button" onclick="toggleLanguagePanel(@Model.Id)" id="toggle-add-language-button" value="+" />
-                <div class="no-show-language-panel" id="@Model.Id">
-                    <span class="add-language-header">Add New Language</span>
-                    <div class="new-language-inputs">
-                        <input type="text" />
-                        <input type="button" onclick="addLanguageButton(@Model.Id)" value=">" />
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="add-language-wrapper">
+                    <input type="button" onclick="toggleLanguagePanel(@Model.Id)" id="toggle-add-language-button" value="+" />
+                    <div class="no-show-language-panel" id="@Model.Id">
+                        <span class="add-language-header">Add New Language</span>
+                        <div class="new-language-inputs">
+                            <input type="text" />
+                            <input type="button" onclick="addLanguageButton(@Model.Id)" value=">" />
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
+            
         </td>
         <td>@Model.City.Name</td>
         <td>@Model.City.Country.Name</td>
